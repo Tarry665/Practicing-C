@@ -5,11 +5,15 @@
 #include <stdlib.h>
 
 void array3(){
-    
-    double arr3[3][3] = {0};
+	printf("\nEnter size of your matrix: ");
+int x = 0;
+	scanf("%d", &x);
+int i;
+int j;
+    double arr3[x][x];
 
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
+    for(i = 0; i < x; i++){
+        for(j = 0; j < x; j++){
             printf("Enter an element in %d %d: ", i + 1, j + 1);
             scanf("%lf", &arr3[i][j]);
         }
@@ -17,15 +21,25 @@ void array3(){
 
     printf("Your matrix is:\n");
 
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 3; j++){
+    for(i = 0; i < x; i++){
+        for(j = 0; j < x; j++){
             printf("%.2lf ", arr3[i][j]);
         }
         printf("\n");
     }
+    
+    double sum1 = 0.0;
+    double sum2 = 0.0;
+    
+    for (i = 0; i < x; i++){
+		sum1 = sum1 + arr3[i][i];
+	}
+	
+	for (i = 0; i < x; i++){
+		sum2 = sum2 + arr3[i][x - i];
+	}
 
-    double sum1 = arr3[0][0] + arr3[1][1] + arr3[2][2];
-    double sum2 = arr3[0][2] + arr3[1][1] + arr3[2][0];
+    
 
     printf("The sum of the elements of the main diagonal is %.2lf\n", sum1);
     printf("The sum of the elements of the side diagonal is %.2lf\n", sum2);
@@ -33,12 +47,17 @@ void array3(){
 }
 
 void array2(){
+int i;
+int j;
+int k;
+	printf("\nEnter size of your matrix: ");
+int x;
+		scanf("%d", &x);	
+    int arr2[x][x];
+    int arr2sq[x][x];
 
-    int arr2[2][2] = {0};
-    int arr2sq[2][2] = {0};
-
-    for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 2; j++){
+    for(i = 0; i < x; i++){
+        for(j = 0; j < x; j++){
             printf("Enter an element in %d %d: ", i + 1, j + 1);
             scanf("%d", &arr2[i][j]);
         }
@@ -46,16 +65,17 @@ void array2(){
 
     printf("Your matrix is:\n");
 
-    for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 2; j++){
+    for(i = 0; i < x; i++){
+        for(j = 0; j < x; j++){
             printf("%d ", arr2[i][j]);
         }
         printf("\n");
     }
 
-    for(int i = 0; i < 2; i++){     
-        for(int j = 0; j < 2; j++){
-            for(int k = 0; k < 2; k++){
+    for(i = 0; i < x; i++){     
+        for(j = 0; j < x; j++){
+        	arr2sq[i][j] = 0;
+            for(k = 0; k < x; k++){
                 arr2sq[i][j] += arr2[i][k] * arr2[k][j];
             }
         }
@@ -63,8 +83,8 @@ void array2(){
 
     printf("Yor squared matrix is:\n");
 
-    for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 2; j++){
+    for(i = 0; i < x; i++){
+        for(j = 0; j < x; j++){
             printf("%d ", arr2sq[i][j]);
         }
         printf("\n");
@@ -78,8 +98,8 @@ int main(){
     while(1){
         printf("\nSelect an option:");
         printf("\n");
-        printf("\n1. Define a double array 3x3");
-        printf("\n2. Define an int array 2x2");
+        printf("\n1. Define a double array");
+        printf("\n2. Define an int array");
         printf("\n3. Exit the program");
         printf("\n");
         printf("\nEnter your choice: ");
