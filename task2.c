@@ -36,7 +36,7 @@ int j;
 	}
 	
 	for (i = 0; i < x; i++){
-		sum2 = sum2 + arr3[i][x - i];
+		sum2 = sum2 + arr3[i][x - i - 1];
 	}
 
     
